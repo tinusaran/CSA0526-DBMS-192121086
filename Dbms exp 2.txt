@@ -1,0 +1,77 @@
+
+mysql> use railway_system;
+Database changed
+mysql> desc train_details;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| T_id   | int(20)  | YES  |     | NULL    |       |
+| T_name | char(50) | YES  |     | NULL    |       |
+| T_type | char(50) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> create table Reservation
+    -> (T_id int(10),
+    -> T_seat int(10));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc Reservation;
++--------+---------+------+-----+---------+-------+
+| Field  | Type    | Null | Key | Default | Extra |
++--------+---------+------+-----+---------+-------+
+| T_id   | int(10) | YES  |     | NULL    |       |
+| T_seat | int(10) | YES  |     | NULL    |       |
++--------+---------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> alter table reservation
+    -> add primary key(T_id);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Reservation;
++--------+---------+------+-----+---------+-------+
+| Field  | Type    | Null | Key | Default | Extra |
++--------+---------+------+-----+---------+-------+
+| T_id   | int(10) | NO   | PRI | 0       |       |
+| T_seat | int(10) | YES  |     | NULL    |       |
++--------+---------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> alter table train_details
+    -> add foreign key(T_id) references Reservation(T_id);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc train_details;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| T_id   | int(20)  | YES  | MUL | NULL    |       |
+| T_name | char(50) | YES  |     | NULL    |       |
+| T_type | char(50) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> alter table train_details
+    -> add primary key(T_name);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table train_details
+    -> add unique(T_type);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc train_details;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| T_id   | int(20)  | YES  | MUL | NULL    |       |
+| T_name | char(50) | NO   | PRI |         |       |
+| T_type | char(50) | YES  | UNI | NULL    |       |
++--------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql>
