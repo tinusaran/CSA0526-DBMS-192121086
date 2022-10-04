@@ -1,0 +1,82 @@
+mysql> create database railway_system;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use railway_system
+mysql> create table Train_details(T_id int(20),T_name char(50),T_type char(50));
+mysql> desc Train_details;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| T_id   | int(20)  | YES  |     | NULL    |       |
+| T_name | char(50) | YES  |     | NULL    |       |
+| T_type | char(50) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> alter table Train_details
+    -> add column T_coach_type char(50);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Train_details;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| T_id         | int(20)  | YES  |     | NULL    |       |
+| T_name       | char(50) | YES  |     | NULL    |       |
+| T_type       | char(50) | YES  |     | NULL    |       |
+| T_coach_type | char(50) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> alter table Train_details
+    -> drop column T_coach_type;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Train_details;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| T_id   | int(20)  | YES  |     | NULL    |       |
+| T_name | char(50) | YES  |     | NULL    |       |
+| T_type | char(50) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> use railway_system;
+Database changed
+mysql> desc passenger;
++-------------+----------+------+-----+---------+-------+
+| Field       | Type     | Null | Key | Default | Extra |
++-------------+----------+------+-----+---------+-------+
+| P_id        | int(20)  | YES  |     | NULL    |       |
+| P_name      | char(20) | YES  |     | NULL    |       |
+| gender      | char(10) | YES  |     | NULL    |       |
+| seat_number | int(10)  | YES  |     | NULL    |       |
+| age         | int(100) | YES  |     | NULL    |       |
+| coach_type  | char(20) | YES  |     | NULL    |       |
++-------------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> desc tracks;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| track_no | int(10)  | YES  |     | NULL    |       |
+| length   | int(255) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> desc stations;
+ERROR 1146 (42S02): Table 'railway_system.stations' doesn't exist
+mysql> desc station;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| S_id   | int(20)  | YES  |     | NULL    |       |
+| S_name | char(50) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql>
