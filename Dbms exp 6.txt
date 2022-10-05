@@ -1,0 +1,64 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from station;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   16 | Tambaram            |
+|   17 | Chennai Egmore      |
+|   18 | Arakkonam Junction  |
+|   19 | Coimbatore Junction |
+|   20 | Madurai Junction    |
+|   21 | Salem Junction      |
+|   22 | Salem Junction      |
+|   25 | perambur            |
+|   24 | Villupuram Junction |
+|   23 | Erode Junction      |
++------+---------------------+
+10 rows in set (0.00 sec)
+
+mysql> select*from station
+    -> where S_name IN('perambur','Erode Junction');
++------+----------------+
+| S_id | S_name         |
++------+----------------+
+|   25 | perambur       |
+|   23 | Erode Junction |
++------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> select*from station
+    -> where S_id BETWEEN 16 AND 19;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   16 | Tambaram            |
+|   17 | Chennai Egmore      |
+|   18 | Arakkonam Junction  |
+|   19 | Coimbatore Junction |
++------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> select*from station
+    -> where S_id NOT BETWEEN 16 AND 19;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   20 | Madurai Junction    |
+|   21 | Salem Junction      |
+|   22 | Salem Junction      |
+|   25 | perambur            |
+|   24 | Villupuram Junction |
+|   23 | Erode Junction      |
++------+---------------------+
+6 rows in set (0.00 sec)
+
+mysql> select count(S_name) from station;
++---------------+
+| count(S_name) |
++---------------+
+|            10 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql>
