@@ -1,0 +1,104 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from station;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   16 | Tambaram            |
+|   17 | Chennai Egmore      |
+|   18 | Arakkonam Junction  |
+|   19 | Coimbatore Junction |
+|   20 | Madurai Junction    |
+|   21 | Salem Junction      |
+|   22 | Salem Junction      |
+|   25 | perambur            |
+|   24 | Villupuram Junction |
+|   23 | Erode Junction      |
++------+---------------------+
+10 rows in set (0.00 sec)
+
+mysql> select*from station
+    -> order by S_name;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   18 | Arakkonam Junction  |
+|   17 | Chennai Egmore      |
+|   19 | Coimbatore Junction |
+|   23 | Erode Junction      |
+|   20 | Madurai Junction    |
+|   25 | perambur            |
+|   22 | Salem Junction      |
+|   21 | Salem Junction      |
+|   16 | Tambaram            |
+|   24 | Villupuram Junction |
++------+---------------------+
+10 rows in set (0.00 sec)
+
+mysql> select*from station
+    -> order by S_id;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   16 | Tambaram            |
+|   17 | Chennai Egmore      |
+|   18 | Arakkonam Junction  |
+|   19 | Coimbatore Junction |
+|   20 | Madurai Junction    |
+|   21 | Salem Junction      |
+|   22 | Salem Junction      |
+|   23 | Erode Junction      |
+|   24 | Villupuram Junction |
+|   25 | perambur            |
++------+---------------------+
+10 rows in set (0.00 sec)
+
+mysql> select*from station
+    -> group by S_id;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   16 | Tambaram            |
+|   17 | Chennai Egmore      |
+|   18 | Arakkonam Junction  |
+|   19 | Coimbatore Junction |
+|   20 | Madurai Junction    |
+|   21 | Salem Junction      |
+|   22 | Salem Junction      |
+|   23 | Erode Junction      |
+|   24 | Villupuram Junction |
+|   25 | perambur            |
++------+---------------------+
+10 rows in set (0.00 sec)
+
+mysql> select*from station
+    -> group by S_name;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   18 | Arakkonam Junction  |
+|   17 | Chennai Egmore      |
+|   19 | Coimbatore Junction |
+|   23 | Erode Junction      |
+|   20 | Madurai Junction    |
+|   25 | perambur            |
+|   21 | Salem Junction      |
+|   16 | Tambaram            |
+|   24 | Villupuram Junction |
++------+---------------------+
+9 rows in set (0.00 sec)
+
+mysql> select*from station
+    -> having S_id>20;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   21 | Salem Junction      |
+|   22 | Salem Junction      |
+|   25 | perambur            |
+|   24 | Villupuram Junction |
+|   23 | Erode Junction      |
++------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql>
