@@ -1,0 +1,43 @@
+
+
+mysql> use railway_system;
+Database changed
+mysql> desc passenger;
++-------------+----------+------+-----+---------+-------+
+| Field       | Type     | Null | Key | Default | Extra |
++-------------+----------+------+-----+---------+-------+
+| P_id        | int(20)  | YES  |     | NULL    |       |
+| P_name      | char(20) | YES  |     | NULL    |       |
+| gender      | char(10) | YES  |     | NULL    |       |
+| seat_number | int(10)  | YES  |     | NULL    |       |
+| age         | int(100) | YES  |     | NULL    |       |
+| coach_type  | char(20) | YES  |     | NULL    |       |
++-------------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> insert into passenger
+    -> values(69,'Raja','male',9,19,'sleeper'),(123,'ajay','male',10,19,'sleeper'),(234,'santhosh','male',11,20,'sleeper');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from passenger;
++------+----------+--------+-------------+------+------------+
+| P_id | P_name   | gender | seat_number | age  | coach_type |
++------+----------+--------+-------------+------+------------+
+|   69 | Raja     | male   |           9 |   19 | sleeper    |
+|  123 | ajay     | male   |          10 |   19 | sleeper    |
+|  234 | santhosh | male   |          11 |   20 | sleeper    |
++------+----------+--------+-------------+------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select P_name from passenger;
++----------+
+| P_name   |
++----------+
+| Raja     |
+| ajay     |
+| santhosh |
++----------+
+3 rows in set (0.00 sec)
+
+mysql>
