@@ -1,0 +1,42 @@
+
+mysql> use railway_system;
+Database changed
+mysql> select*from passenger;
++------+----------+--------+-------------+------+------------+
+| P_id | P_name   | gender | seat_number | age  | coach_type |
++------+----------+--------+-------------+------+------------+
+|   69 | Raja     | male   |           9 |   19 | sleeper    |
+|  123 | ajay     | male   |          10 |   19 | sleeper    |
+|  234 | santhosh | male   |          11 |   20 | sleeper    |
++------+----------+--------+-------------+------+------------+
+3 rows in set (0.00 sec)
+
+mysql> delete from passenger
+    -> where P_id=123;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from passenger;
++------+----------+--------+-------------+------+------------+
+| P_id | P_name   | gender | seat_number | age  | coach_type |
++------+----------+--------+-------------+------+------------+
+|   69 | Raja     | male   |           9 |   19 | sleeper    |
+|  234 | santhosh | male   |          11 |   20 | sleeper    |
++------+----------+--------+-------------+------+------------+
+2 rows in set (0.00 sec)
+
+mysql> update passenger
+    -> set gender='female'
+    -> where P_id=69;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from passenger;
++------+----------+--------+-------------+------+------------+
+| P_id | P_name   | gender | seat_number | age  | coach_type |
++------+----------+--------+-------------+------+------------+
+|   69 | Raja     | female |           9 |   19 | sleeper    |
+|  234 | santhosh | male   |          11 |   20 | sleeper    |
++------+----------+--------+-------------+------+------------+
+2 rows in set (0.00 sec)
+
+mysql>
