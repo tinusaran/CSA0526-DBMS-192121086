@@ -1,0 +1,97 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from passenger;
++------+-------------+--------+-------------+------+-------------+
+| P_id | P_name      | gender | seat_number | age  | coach_type  |
++------+-------------+--------+-------------+------+-------------+
+|   69 | Raja        | female |           9 |   19 | sleeper     |
+|  234 | santhosh    | male   |          11 |   20 | sleeper     |
+|   70 | thevaashree | female |          69 |   20 | first class |
+|   71 | jaya        | female |          72 |   20 | first class |
+|   78 | arsath      | male   |         101 |   28 | 2 tier AC   |
+|   81 | ajay        | male   |         102 |   20 | 2 tier AC   |
+|   91 | Aakash      | male   |         201 |   22 | 3 tier AC   |
+|   93 | rajan       | male   |         204 |   32 | 3 tier AC   |
++------+-------------+--------+-------------+------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> select*from station;
++------+---------------------+
+| S_id | S_name              |
++------+---------------------+
+|   16 | Tambaram            |
+|   17 | Chennai Egmore      |
+|   18 | Arakkonam Junction  |
+|   19 | Coimbatore Junction |
+|   20 | Madurai Junction    |
+|   21 | Salem Junction      |
+|   22 | Salem Junction      |
+|   25 | perambur            |
+|   24 | Villupuram Junction |
+|   23 | Erode Junction      |
++------+---------------------+
+10 rows in set (0.00 sec)
+
+mysql> select P_id,P_name,S_id,S_name
+    -> from passenger,station
+    -> where S_id=17;
++------+-------------+------+----------------+
+| P_id | P_name      | S_id | S_name         |
++------+-------------+------+----------------+
+|   69 | Raja        |   17 | Chennai Egmore |
+|  234 | santhosh    |   17 | Chennai Egmore |
+|   70 | thevaashree |   17 | Chennai Egmore |
+|   71 | jaya        |   17 | Chennai Egmore |
+|   78 | arsath      |   17 | Chennai Egmore |
+|   81 | ajay        |   17 | Chennai Egmore |
+|   91 | Aakash      |   17 | Chennai Egmore |
+|   93 | rajan       |   17 | Chennai Egmore |
++------+-------------+------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> select P_name,coach_type,S_name
+    -> from passenger
+    -> left outer join station
+    -> on S_id=20;
++-------------+-------------+------------------+
+| P_name      | coach_type  | S_name           |
++-------------+-------------+------------------+
+| Raja        | sleeper     | Madurai Junction |
+| santhosh    | sleeper     | Madurai Junction |
+| thevaashree | first class | Madurai Junction |
+| jaya        | first class | Madurai Junction |
+| arsath      | 2 tier AC   | Madurai Junction |
+| ajay        | 2 tier AC   | Madurai Junction |
+| Aakash      | 3 tier AC   | Madurai Junction |
+| rajan       | 3 tier AC   | Madurai Junction |
++-------------+-------------+------------------+
+8 rows in set (0.00 sec)
+
+mysql> select P_name,gender,S_name
+    -> from passenger
+    -> right outer join station
+    -> on S_id=23;
++-------------+--------+---------------------+
+| P_name      | gender | S_name              |
++-------------+--------+---------------------+
+| NULL        | NULL   | Tambaram            |
+| NULL        | NULL   | Chennai Egmore      |
+| NULL        | NULL   | Arakkonam Junction  |
+| NULL        | NULL   | Coimbatore Junction |
+| NULL        | NULL   | Madurai Junction    |
+| NULL        | NULL   | Salem Junction      |
+| NULL        | NULL   | Salem Junction      |
+| NULL        | NULL   | perambur            |
+| NULL        | NULL   | Villupuram Junction |
+| Raja        | female | Erode Junction      |
+| santhosh    | male   | Erode Junction      |
+| thevaashree | female | Erode Junction      |
+| jaya        | female | Erode Junction      |
+| arsath      | male   | Erode Junction      |
+| ajay        | male   | Erode Junction      |
+| Aakash      | male   | Erode Junction      |
+| rajan       | male   | Erode Junction      |
++-------------+--------+---------------------+
+17 rows in set (0.00 sec)
+
+mysql>
