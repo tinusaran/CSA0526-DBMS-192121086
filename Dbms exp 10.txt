@@ -1,0 +1,48 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from passenger;
++------+-------------+--------+-------------+------+-------------+
+| P_id | P_name      | gender | seat_number | age  | coach_type  |
++------+-------------+--------+-------------+------+-------------+
+|   69 | Raja        | female |           9 |   19 | sleeper     |
+|  234 | santhosh    | male   |          11 |   20 | sleeper     |
+|   70 | thevaashree | female |          69 |   20 | first class |
+|   71 | jaya        | female |          72 |   20 | first class |
+|   78 | arsath      | male   |         101 |   28 | 2 tier AC   |
+|   81 | ajay        | male   |         102 |   20 | 2 tier AC   |
+|   91 | Aakash      | male   |         201 |   22 | 3 tier AC   |
+|   93 | rajan       | male   |         204 |   32 | 3 tier AC   |
++------+-------------+--------+-------------+------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> create view gender_view as select P_name,gender and age from passenger;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select*from gender_view;
++-------------+----------------+
+| P_name      | gender and age |
++-------------+----------------+
+| Raja        |              0 |
+| santhosh    |              0 |
+| thevaashree |              0 |
+| jaya        |              0 |
+| arsath      |              0 |
+| ajay        |              0 |
+| Aakash      |              0 |
+| rajan       |              0 |
++-------------+----------------+
+8 rows in set, 8 warnings (0.00 sec)
+
+mysql> create index P_name on passenger(P_name);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from passenger;
++-----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table     | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++-----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| passenger |          1 | P_name   |            1 | P_name      | A         |           8 |     NULL | NULL   | YES  | BTREE      |         |               |
++-----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+1 row in set (0.00 sec)
+
+mysql>
