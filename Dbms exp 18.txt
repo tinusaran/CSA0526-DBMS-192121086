@@ -1,0 +1,117 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from station;
++------+----------------------+
+| S_id | S_name               |
++------+----------------------+
+|   16 | Tambaram             |
+|   17 | Chennai Egmore       |
+|   18 | Arakkonam Junction   |
+|   19 | Coimbatore Junction  |
+|   20 | Madurai Junction     |
+|   21 | Salem Junction       |
+|   22 | Salem Junction       |
+|   25 | perambur             |
+|   24 | Villupuram Junction  |
+|   23 | Erode Junction       |
+|   17 | Tiruvallur           |
+|   27 | Tiruvallur           |
+|   30 | Nagercoil Junction   |
+|   33 | Tirunelveli Junction |
++------+----------------------+
+14 rows in set (0.00 sec)
+
+mysql> select @@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> insert into station values(38,'Thanjavur Junction');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from station;
++------+----------------------+
+| S_id | S_name               |
++------+----------------------+
+|   16 | Tambaram             |
+|   17 | Chennai Egmore       |
+|   18 | Arakkonam Junction   |
+|   19 | Coimbatore Junction  |
+|   20 | Madurai Junction     |
+|   21 | Salem Junction       |
+|   22 | Salem Junction       |
+|   25 | perambur             |
+|   24 | Villupuram Junction  |
+|   23 | Erode Junction       |
+|   17 | Tiruvallur           |
+|   27 | Tiruvallur           |
+|   30 | Nagercoil Junction   |
+|   33 | Tirunelveli Junction |
+|   38 | Thanjavur Junction   |
++------+----------------------+
+15 rows in set (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select@@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> delete from station where S_id=38;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from station;
++------+----------------------+
+| S_id | S_name               |
++------+----------------------+
+|   16 | Tambaram             |
+|   17 | Chennai Egmore       |
+|   18 | Arakkonam Junction   |
+|   19 | Coimbatore Junction  |
+|   20 | Madurai Junction     |
+|   21 | Salem Junction       |
+|   22 | Salem Junction       |
+|   25 | perambur             |
+|   24 | Villupuram Junction  |
+|   23 | Erode Junction       |
+|   17 | Tiruvallur           |
+|   27 | Tiruvallur           |
+|   30 | Nagercoil Junction   |
+|   33 | Tirunelveli Junction |
++------+----------------------+
+14 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select*from station;
++------+----------------------+
+| S_id | S_name               |
++------+----------------------+
+|   16 | Tambaram             |
+|   17 | Chennai Egmore       |
+|   18 | Arakkonam Junction   |
+|   19 | Coimbatore Junction  |
+|   20 | Madurai Junction     |
+|   21 | Salem Junction       |
+|   22 | Salem Junction       |
+|   25 | perambur             |
+|   24 | Villupuram Junction  |
+|   23 | Erode Junction       |
+|   17 | Tiruvallur           |
+|   27 | Tiruvallur           |
+|   30 | Nagercoil Junction   |
+|   33 | Tirunelveli Junction |
+|   38 | Thanjavur Junction   |
++------+----------------------+
+15 rows in set (0.00 sec)
+
+mysql>
