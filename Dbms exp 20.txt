@@ -1,0 +1,57 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from hrm;
++----------------+------------+--------+
+| Name           | DOB        | Gender |
++----------------+------------+--------+
+| Usain Bolt     | 1986-08-21 | M      |
+| Lin Dan        | 1983-10-26 | M      |
+| Mary kom       | 1982-11-24 | F      |
+| Michael Phelps | 1985-06-30 | M      |
+| Lee chong wei  | 1982-10-21 | M      |
+| P.V.Sindhu     | 1995-07-05 | F      |
++----------------+------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select*from hrm_2;
++-------------+--------+
+| Sport       | Medals |
++-------------+--------+
+| 100m sprint |      8 |
+| Badminton   |      2 |
+| Boxing      |      1 |
+| Swimming    |     28 |
+| Badminton   |      3 |
+| Badminton   |      2 |
++-------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select a.Name,b.Sport,b.Medals,Medals-23 as Gold_Medals
+    -> from hrm a,hrm_2 b
+    -> where Name='Michael Phelps' AND sport='Swimming';
++----------------+----------+--------+-------------+
+| Name           | Sport    | Medals | Gold_Medals |
++----------------+----------+--------+-------------+
+| Michael Phelps | Swimming |     28 |           5 |
++----------------+----------+--------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(Medals),min(Medals),max(Medals),avg(Medals) from hrm_2;
++-------------+-------------+-------------+-------------+
+| sum(Medals) | min(Medals) | max(Medals) | avg(Medals) |
++-------------+-------------+-------------+-------------+
+|          44 |           1 |          28 |      7.3333 |
++-------------+-------------+-------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select a.Name,a.DOB
+    -> from hrm a
+    -> where exists(select Name from hrm where a.Name='Usain Bolt');
++------------+------------+
+| Name       | DOB        |
++------------+------------+
+| Usain Bolt | 1986-08-21 |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql>
