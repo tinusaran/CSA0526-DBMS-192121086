@@ -1,0 +1,46 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from hrm;
++----------------+------------+--------+
+| Name           | DOB        | Gender |
++----------------+------------+--------+
+| Usain Bolt     | 1986-08-21 | M      |
+| Lin Dan        | 1983-10-26 | M      |
+| Mary kom       | 1982-11-24 | F      |
+| Michael Phelps | 1985-06-30 | M      |
+| Lee chong wei  | 1982-10-21 | M      |
+| P.V.Sindhu     | 1995-07-05 | F      |
++----------------+------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select*from hrm_2;
++-------------+--------+
+| Sport       | Medals |
++-------------+--------+
+| 100m sprint |      8 |
+| Badminton   |      2 |
+| Boxing      |      1 |
+| Swimming    |     28 |
+| Badminton   |      3 |
+| Badminton   |      2 |
++-------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select Name,DOB
+    -> from hrm
+    -> where DOB>'1983-01-01';
++----------------+------------+
+| Name           | DOB        |
++----------------+------------+
+| Usain Bolt     | 1986-08-21 |
+| Lin Dan        | 1983-10-26 |
+| Michael Phelps | 1985-06-30 |
+| P.V.Sindhu     | 1995-07-05 |
++----------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select a.Name,a.Gender,b.Medals
+    -> from hrm a
+    -> inner join hrm_2 b
+    -> on a.Name=b.Sport;
+Empty set (0.00 sec)
