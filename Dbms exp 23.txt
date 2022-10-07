@@ -1,0 +1,112 @@
+mysql> use railway_system;
+Database changed
+mysql> create table patient_details
+    -> (P_id int(50),P_Name char(50),disease char(50),P_Age int(50));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc patient_details;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| P_id    | int(50)  | YES  |     | NULL    |       |
+| P_Name  | char(50) | YES  |     | NULL    |       |
+| disease | char(50) | YES  |     | NULL    |       |
+| P_Age   | int(50)  | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into patient_details
+    -> values(69,'Thevaashree','Aids',20),(71,'Sruthi','Amnesia',19),(83,'Sruthika','Dengue',21);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from patient_details;
++------+-------------+---------+-------+
+| P_id | P_Name      | disease | P_Age |
++------+-------------+---------+-------+
+|   69 | Thevaashree | Aids    |    20 |
+|   71 | Sruthi      | Amnesia |    19 |
+|   83 | Sruthika    | Dengue  |    21 |
++------+-------------+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> create table Doc_details(Doc_id int(5),Doc_Name char(20),specialization char(50));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc Doc_details;
++----------------+----------+------+-----+---------+-------+
+| Field          | Type     | Null | Key | Default | Extra |
++----------------+----------+------+-----+---------+-------+
+| Doc_id         | int(5)   | YES  |     | NULL    |       |
+| Doc_Name       | char(20) | YES  |     | NULL    |       |
+| specialization | char(50) | YES  |     | NULL    |       |
++----------------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into Doc_details
+    -> values(3,'Vasool raja','Orthopedics'),(6,'Maaran','Dermatology'),(8,'Thevaashree','gynecologist');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from Doc_details;
++--------+-------------+----------------+
+| Doc_id | Doc_Name    | specialization |
++--------+-------------+----------------+
+|      3 | Vasool raja | Orthopedics    |
+|      6 | Maaran      | Dermatology    |
+|      8 | Thevaashree | gynecologist   |
++--------+-------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> alter table Doc_details add primary key(Doc_id);
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc Doc_details;
++----------------+----------+------+-----+---------+-------+
+| Field          | Type     | Null | Key | Default | Extra |
++----------------+----------+------+-----+---------+-------+
+| Doc_id         | int(5)   | NO   | PRI | 0       |       |
+| Doc_Name       | char(20) | YES  |     | NULL    |       |
+| specialization | char(50) | YES  |     | NULL    |       |
++----------------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select Doc_Name,specialization from Doc_details;
++-------------+----------------+
+| Doc_Name    | specialization |
++-------------+----------------+
+| Vasool raja | Orthopedics    |
+| Maaran      | Dermatology    |
+| Thevaashree | gynecologist   |
++-------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select count(Doc_Name) from Doc_details;
++-----------------+
+| count(Doc_Name) |
++-----------------+
+|               3 |
++-----------------+
+1 row in set (0.01 sec)
+
+mysql> select*from patient_details
+    -> where disease='Amnesia';
++------+--------+---------+-------+
+| P_id | P_Name | disease | P_Age |
++------+--------+---------+-------+
+|   71 | Sruthi | Amnesia |    19 |
++------+--------+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> select P_Name,P_Age from patient_details;
++-------------+-------+
+| P_Name      | P_Age |
++-------------+-------+
+| Thevaashree |    20 |
+| Sruthi      |    19 |
+| Sruthika    |    21 |
++-------------+-------+
+3 rows in set (0.00 sec)
+
+mysql>
