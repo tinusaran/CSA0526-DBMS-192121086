@@ -37,3 +37,5 @@
 [sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2022.txt)
 # Exp_23
 [sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2023.txt)
+# Exp_24
+[sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2024.txt)
