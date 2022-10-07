@@ -21,6 +21,9 @@
 [sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2010.txt)
 # Exp_11
 [sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2011.txt)
+# Exp_13
+[sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2013.txt)
+
 
 
 
