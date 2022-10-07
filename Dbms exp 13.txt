@@ -1,0 +1,67 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from passenger;
++------+-------------+--------+-------------+------+-------------+
+| P_id | P_name      | gender | seat_number | age  | coach_type  |
++------+-------------+--------+-------------+------+-------------+
+|   69 | Raja        | female |           9 |   19 | sleeper     |
+|  234 | santhosh    | male   |          11 |   20 | sleeper     |
+|   70 | thevaashree | female |          69 |   20 | first class |
+|   71 | jaya        | female |          72 |   20 | first class |
+|   78 | arsath      | male   |         101 |   28 | 2 tier AC   |
+|   81 | ajay        | male   |         102 |   20 | 2 tier AC   |
+|   91 | Aakash      | male   |         201 |   22 | 3 tier AC   |
+|   93 | rajan       | male   |         204 |   32 | 3 tier AC   |
++------+-------------+--------+-------------+------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> savepoint insertion;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update passenger set gender='male' where P_id=69;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from passenger;
++------+-------------+--------+-------------+------+-------------+
+| P_id | P_name      | gender | seat_number | age  | coach_type  |
++------+-------------+--------+-------------+------+-------------+
+|   69 | Raja        | male   |           9 |   19 | sleeper     |
+|  234 | santhosh    | male   |          11 |   20 | sleeper     |
+|   70 | thevaashree | female |          69 |   20 | first class |
+|   71 | jaya        | female |          72 |   20 | first class |
+|   78 | arsath      | male   |         101 |   28 | 2 tier AC   |
+|   81 | ajay        | male   |         102 |   20 | 2 tier AC   |
+|   91 | Aakash      | male   |         201 |   22 | 3 tier AC   |
+|   93 | rajan       | male   |         204 |   32 | 3 tier AC   |
++------+-------------+--------+-------------+------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> savepoint updation;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> rollback to insertion;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select*from passenger;
++------+-------------+--------+-------------+------+-------------+
+| P_id | P_name      | gender | seat_number | age  | coach_type  |
++------+-------------+--------+-------------+------+-------------+
+|   69 | Raja        | female |           9 |   19 | sleeper     |
+|  234 | santhosh    | male   |          11 |   20 | sleeper     |
+|   70 | thevaashree | female |          69 |   20 | first class |
+|   71 | jaya        | female |          72 |   20 | first class |
+|   78 | arsath      | male   |         101 |   28 | 2 tier AC   |
+|   81 | ajay        | male   |         102 |   20 | 2 tier AC   |
+|   91 | Aakash      | male   |         201 |   22 | 3 tier AC   |
+|   93 | rajan       | male   |         204 |   32 | 3 tier AC   |
++------+-------------+--------+-------------+------+-------------+
+8 rows in set (0.00 sec)
+
+mysql>
