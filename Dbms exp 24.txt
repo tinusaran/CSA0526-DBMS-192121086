@@ -1,0 +1,42 @@
+mysql> use railway_system;
+Database changed
+mysql> create table car_details
+    -> (Car_Name char(50),Car_Model char(50),Car_type char(50));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc car_details;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| Car_Name  | char(50) | YES  |     | NULL    |       |
+| Car_Model | char(50) | YES  |     | NULL    |       |
+| Car_type  | char(50) | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into car_details
+    -> values('BMW','X5','Luxury SUV'),('Audi','A4','Luxury wagon'),('Porsche','911','Luxury sport');
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from car_details;
++----------+-----------+--------------+
+| Car_Name | Car_Model | Car_type     |
++----------+-----------+--------------+
+| BMW      | X5        | Luxury SUV   |
+| Audi     | A4        | Luxury wagon |
+| Porsche  | 911       | Luxury sport |
++----------+-----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select Car_Name,Car_Model
+    -> from car_details
+    -> where Car_Name='Audi';
++----------+-----------+
+| Car_Name | Car_Model |
++----------+-----------+
+| Audi     | A4        |
++----------+-----------+
+1 row in set (0.00 sec)
+
+mysql>
