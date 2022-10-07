@@ -1,0 +1,62 @@
+mysql> use railway_system;
+Database changed
+mysql> select*from tatkal_booking;
++-------------+------+-------------+
+| P_name      | P_id | seat_number |
++-------------+------+-------------+
+| raja        |   69 |          82 |
+| ajay        |   81 |          83 |
+| Aakash      |   91 |          84 |
+| jaya        |   71 |          85 |
+| thevaashree |   70 |          86 |
+| arsath      |   78 |         222 |
+| santhosh    |  234 |         232 |
+| rajan       |   93 |         246 |
+| barath      |  101 |         258 |
+| dante       |   96 |          16 |
++-------------+------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> select P_name,seat_number,
+    -> case
+    -> when seat_number<100 and seat_number>50 then 'General ticket'
+    -> when seat_number<50 then 'First ticket'
+    -> else 'Tatkal ticket'
+    -> end Ticket_type
+    -> from tatkal_booking;
++-------------+-------------+----------------+
+| P_name      | seat_number | Ticket_type    |
++-------------+-------------+----------------+
+| raja        |          82 | General ticket |
+| ajay        |          83 | General ticket |
+| Aakash      |          84 | General ticket |
+| jaya        |          85 | General ticket |
+| thevaashree |          86 | General ticket |
+| arsath      |         222 | Tatkal ticket  |
+| santhosh    |         232 | Tatkal ticket  |
+| rajan       |         246 | Tatkal ticket  |
+| barath      |         258 | Tatkal ticket  |
+| dante       |          16 | First ticket   |
++-------------+-------------+----------------+
+10 rows in set (0.00 sec)
+
+mysql> select P_name,seat_number,
+    -> if(seat_number>100,'tatkal ticket','general ticket')
+    -> from tatkal_booking;
++-------------+-------------+------------------------------------------------------+
+| P_name      | seat_number | if(seat_number>100,'tatkal ticket','general ticket') |
++-------------+-------------+------------------------------------------------------+
+| raja        |          82 | general ticket                                       |
+| ajay        |          83 | general ticket                                       |
+| Aakash      |          84 | general ticket                                       |
+| jaya        |          85 | general ticket                                       |
+| thevaashree |          86 | general ticket                                       |
+| arsath      |         222 | tatkal ticket                                        |
+| santhosh    |         232 | tatkal ticket                                        |
+| rajan       |         246 | tatkal ticket                                        |
+| barath      |         258 | tatkal ticket                                        |
+| dante       |          16 | general ticket                                       |
++-------------+-------------+------------------------------------------------------+
+10 rows in set (0.00 sec)
+
+mysql>
