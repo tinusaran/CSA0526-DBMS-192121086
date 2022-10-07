@@ -1,0 +1,83 @@
+mysql> use railway_system;
+Database changed
+mysql> create table BookPC
+    -> (Book_id int(50),Book_Name char(50),Author char(50),Book_cost int(50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc BookPC;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| Book_id   | int(50)  | YES  |     | NULL    |       |
+| Book_Name | char(50) | YES  |     | NULL    |       |
+| Author    | char(50) | YES  |     | NULL    |       |
+| Book_cost | int(50)  | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> insert into BookPC
+    -> values(101,'Atlas','A.Raja',399),(121,'GK','Thevaashree',299),(131,'Encyclopedia','Jaya',599),(141,'Dictionary','oxford',799),(151,'Picture Encyclopedia','Ajay',499);
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select*from BookPC;
++---------+----------------------+-------------+-----------+
+| Book_id | Book_Name            | Author      | Book_cost |
++---------+----------------------+-------------+-----------+
+|     101 | Atlas                | A.Raja      |       399 |
+|     121 | GK                   | Thevaashree |       299 |
+|     131 | Encyclopedia         | Jaya        |       599 |
+|     141 | Dictionary           | oxford      |       799 |
+|     151 | Picture Encyclopedia | Ajay        |       499 |
++---------+----------------------+-------------+-----------+
+5 rows in set (0.01 sec)
+
+mysql> update BookPC
+    -> set Book_cost=699
+    -> where Book_id=141;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from BookPC;
++---------+----------------------+-------------+-----------+
+| Book_id | Book_Name            | Author      | Book_cost |
++---------+----------------------+-------------+-----------+
+|     101 | Atlas                | A.Raja      |       399 |
+|     121 | GK                   | Thevaashree |       299 |
+|     131 | Encyclopedia         | Jaya        |       599 |
+|     141 | Dictionary           | oxford      |       699 |
+|     151 | Picture Encyclopedia | Ajay        |       499 |
++---------+----------------------+-------------+-----------+
+5 rows in set (0.01 sec)
+
+mysql> insert into BookPC values(111,'Diary of a wimpy kid','Jeff Kinney',256);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from BookPC;
++---------+----------------------+-------------+-----------+
+| Book_id | Book_Name            | Author      | Book_cost |
++---------+----------------------+-------------+-----------+
+|     101 | Atlas                | A.Raja      |       399 |
+|     121 | GK                   | Thevaashree |       299 |
+|     131 | Encyclopedia         | Jaya        |       599 |
+|     141 | Dictionary           | oxford      |       699 |
+|     151 | Picture Encyclopedia | Ajay        |       499 |
+|     111 | Diary of a wimpy kid | Jeff Kinney |       256 |
++---------+----------------------+-------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> delete from BookPC
+    -> where Book_id=111;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from BookPC;
++---------+----------------------+-------------+-----------+
+| Book_id | Book_Name            | Author      | Book_cost |
++---------+----------------------+-------------+-----------+
+|     101 | Atlas                | A.Raja      |       399 |
+|     121 | GK                   | Thevaashree |       299 |
+|     131 | Encyclopedia         | Jaya        |       599 |
+|     141 | Dictionary           | oxford      |       699 |
+|     151 | Picture Encyclopedia | Ajay        |       499 |
++---------+----------------------+-------------+-----------+
+5 rows in set (0.00 sec)
