@@ -27,6 +27,9 @@
 [sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2014.txt)
 # Exp_17
 [sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2017.txt)
+# Exp_18
+[sqlqueries](https://github.com/tinusaran/CSA0526-DBMS-192121086/blob/main/Dbms%20exp%2018.txt)
+
 
 
 
