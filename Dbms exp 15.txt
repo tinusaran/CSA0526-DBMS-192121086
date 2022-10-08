@@ -1,0 +1,65 @@
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 52
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use railway_system;
+Database changed
+mysql> select*from passenger;
++------+-------------+--------+-------------+------+-------------+
+| P_id | P_name      | gender | seat_number | age  | coach_type  |
++------+-------------+--------+-------------+------+-------------+
+|   69 | Raja        | female |           9 |   19 | sleeper     |
+|  234 | santhosh    | male   |          11 |   20 | sleeper     |
+|   70 | thevaashree | female |          69 |   20 | first class |
+|   71 | jaya        | female |          72 |   20 | first class |
+|   78 | arsath      | male   |         101 |   28 | 2 tier AC   |
+|   81 | ajay        | male   |         102 |   20 | 2 tier AC   |
+|   91 | Aakash      | male   |         201 |   22 | 3 tier AC   |
+|   93 | rajan       | male   |         204 |   32 | 3 tier AC   |
++------+-------------+--------+-------------+------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE passenger_info()
+    -> begin
+    -> select*from passenger;
+    -> end;//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CALL passenger_info();
+    -> //
++------+-------------+--------+-------------+------+-------------+
+| P_id | P_name      | gender | seat_number | age  | coach_type  |
++------+-------------+--------+-------------+------+-------------+
+|   69 | Raja        | female |           9 |   19 | sleeper     |
+|  234 | santhosh    | male   |          11 |   20 | sleeper     |
+|   70 | thevaashree | female |          69 |   20 | first class |
+|   71 | jaya        | female |          72 |   20 | first class |
+|   78 | arsath      | male   |         101 |   28 | 2 tier AC   |
+|   81 | ajay        | male   |         102 |   20 | 2 tier AC   |
+|   91 | Aakash      | male   |         201 |   22 | 3 tier AC   |
+|   93 | rajan       | male   |         204 |   32 | 3 tier AC   |
++------+-------------+--------+-------------+------+-------------+
+8 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call while_loop()
+    -> //
++----------------------------+
+| res                        |
++----------------------------+
+| 1,5,25,125,625,3125,15625, |
++----------------------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
